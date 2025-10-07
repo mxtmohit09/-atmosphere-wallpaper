@@ -86,7 +86,7 @@ export default function Page() {
         <div className="text-center mb-6">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 relative group">
             <span className="bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent tracking-wide">
-              Atmospheric
+              Atmosphere
             </span>
             <span className="text-white ml-2 font-light">Wallpaper Generator</span>
             <div className="absolute -bottom-1 left-0 w-24 h-0.5 bg-gradient-to-r from-white via-gray-400 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -185,8 +185,8 @@ export default function Page() {
                 </button>
               )}
               
-              {/* Controls Overlay - Bottom */}
-              <div className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-sm rounded-lg p-2 z-20">
+              {/* Mobile Controls Overlay - Bottom (only visible on mobile) */}
+              <div className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-sm rounded-lg p-2 z-20 md:hidden">
                 <div className="grid grid-cols-2 gap-3">
                   {/* Blur Control */}
                   <div className="space-y-1">
@@ -243,6 +243,47 @@ export default function Page() {
                 )}
               </div>
             )}
+          </div>
+
+          {/* Desktop Controls Section - only visible on desktop */}
+          <div className="hidden md:block bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 mb-4 border border-gray-700/50">
+            <h3 className="text-lg font-semibold mb-4">Adjust Settings</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Blur Control */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-medium text-gray-300">Blur Intensity</label>
+                  <span className="text-sm font-mono bg-gray-700 px-2 py-1 rounded text-white">{blur + 60}%</span>
+                </div>
+                <input 
+                  type="range" 
+                  min={0} 
+                  max={60} 
+                  value={blur} 
+                  onChange={(e) => optimizedSetBlur(Number(e.target.value))}
+                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+                />
+                <p className="text-xs text-gray-400">Higher values create more atmospheric blur</p>
+              </div>
+
+              {/* Size Control */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-medium text-gray-300">Element Size</label>
+                  <span className="text-sm font-mono bg-gray-700 px-2 py-1 rounded text-white">{size}%</span>
+                </div>
+                <input 
+                  type="range" 
+                  min={50} 
+                  max={150} 
+                  value={size} 
+                  onChange={(e) => optimizedSetSize(Number(e.target.value))}
+                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+                />
+                <p className="text-xs text-gray-400">Adjust the size of atmospheric elements</p>
+              </div>
+            </div>
           </div>
 
 
