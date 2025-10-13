@@ -1,4 +1,17 @@
+# Atmosphere Wallpaper Generator
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+Create stunning atmospheric wallpapers from your photos with customizable blur and size settings.
+
+## Features
+
+- Upload your own images
+- Customizable blur intensity and element size
+- Multiple resolution presets
+- Real-time preview
+- Download generated wallpapers
+- Google Analytics integration
 
 ## Getting Started
 
@@ -19,6 +32,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Google Analytics Setup
+
+To enable Google Analytics tracking:
+
+1. Create a `.env.local` file in the root directory
+2. Add your Google Analytics Measurement ID:
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+3. Replace `G-XXXXXXXXXX` with your actual Google Analytics Measurement ID
+4. You can find this ID in your Google Analytics dashboard under Admin > Data Streams
+
+The analytics will automatically start tracking page views and user interactions once the environment variable is set.
 
 ## Learn More
 
